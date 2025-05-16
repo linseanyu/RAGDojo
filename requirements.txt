@@ -2,4 +2,6 @@ langchain
 langchain-community
 langchain-core
 beautifulsoup4
-chromadb 
+chromadb
+langchain-ollama
+langchain-huggingface
