@@ -5,3 +5,4 @@ beautifulsoup4
 chromadb
 langchain-ollama
 langchain-huggingface
+numpy==1.24.4

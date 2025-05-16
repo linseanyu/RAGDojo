@@ -1,3 +1,7 @@
+import os
+os.environ["USER_AGENT"] = "RAG101"
+os.environ["LANGCHAIN_API_KEY"] = "replace with your own key"
+
 import bs4
 from langchain import hub
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -6,7 +10,6 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain.chat_models import init_chat_model
-from langchain_ollama import ChatOllama
 # from langchain_ollama import OllamaEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
@@ -62,4 +65,5 @@ rag_chain = (
 )
 
 # Question
-rag_chain.invoke("What is Task Decomposition?")
+response = rag_chain.invoke("What is Task Decomposition?")
+print(response)
