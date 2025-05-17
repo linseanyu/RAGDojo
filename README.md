@@ -70,4 +70,10 @@ explanation in steps:
     we use sub question + retrieved doc to generate answers and then combine all of them as the context of the original question
     ![Individually](./imgs/Decomposition-Individually.png)
 
+### RAG204 - Query Transformations: Step Back 
 
+STEP-BACK PROMPTING is a technique to improve how large language models (LLMs) handle complex reasoning tasks. Instead of tackling a detailed question directly, the model first "steps back" to identify a broader, high-level concept or principle (e.g., asking about "education history" instead of a specific school attended during a time period). This abstraction simplifies the problem, making it easier to retrieve relevant facts or apply reasoning. The process has two steps:
+
+1. Abstraction: Prompt the model to derive a general concept or principle related to the question.
+2. Reasoning: Use that concept to guide accurate, step-by-step reasoning toward the answer.
+Intuitively, it’s like zooming out to see the bigger picture before diving into the details, helping the model avoid errors and reason more effectively. It significantly boosts performance on tasks like physics, chemistry, and multi-step question-answering by grounding reasoning in clearer, high-level ideas.
