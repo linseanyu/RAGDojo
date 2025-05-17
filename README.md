@@ -16,7 +16,7 @@ Focus on **the base process of a RAG**
 
 
 ### RAG202 - Query Transformations: RAG-Fusion
-* RAG-Fusion: The Multi Query method used above will prompt the model to generate multiple question in a form of [question1, question2, question3]. When we use this array to retrive data from the retriver, we will then get the result in a form of [[doc3, doc4, doc1], [doc3, doc2, doc1], [doc2, doc4, doc5]]. Instead of simply merge the results and remove the duplicated docs, RAG-Fusion use *Reciprocal Rank Fusion* algrorithm to rerank the docs based on their relevance (assuming the retriver return to docs in sorted order of relevance).
+**RAG-Fusion**: The Multi Query method used above will prompt the model to generate multiple question in a form of [question1, question2, question3]. When we use this array to retrive data from the retriver, we will then get the result in a form of [[doc3, doc4, doc1], [doc3, doc2, doc1], [doc2, doc4, doc5]]. Instead of simply merge the results and remove the duplicated docs, RAG-Fusion use *Reciprocal Rank Fusion* algrorithm to rerank the docs based on their relevance (assuming the retriver return to docs in sorted order of relevance).
 
 ![QueryTransformations](./imgs/QueryTransformations.png)
 
@@ -28,7 +28,7 @@ Focus on **the base process of a RAG**
 ![QueryTransformations](./imgs/QueryTransformations.png)
 
 
-* Decomposition: 
+**Decomposition**: 
 explanation in steps:
 1. prompt the model to generate generates multiple sub-questions based on the query first, for exmaple for question : *" What are the main components of an LLM-powered autonomous agent system? "*, we got the result from llm : 
 ```
@@ -72,8 +72,15 @@ explanation in steps:
 
 ### RAG204 - Query Transformations: Step Back 
 
-STEP-BACK PROMPTING is a technique to improve how large language models (LLMs) handle complex reasoning tasks. Instead of tackling a detailed question directly, the model first "steps back" to identify a broader, high-level concept or principle (e.g., asking about "education history" instead of a specific school attended during a time period). This abstraction simplifies the problem, making it easier to retrieve relevant facts or apply reasoning. The process has two steps:
+**STEP-BACK PROMPTING** is a technique to improve how large language models (LLMs) handle complex reasoning tasks. Instead of tackling a detailed question directly, the model first "steps back" to identify a broader, high-level concept or principle (e.g., asking about "education history" instead of a specific school attended during a time period). This abstraction simplifies the problem, making it easier to retrieve relevant facts or apply reasoning. The process has two steps:
 
 1. Abstraction: Prompt the model to derive a general concept or principle related to the question.
 2. Reasoning: Use that concept to guide accurate, step-by-step reasoning toward the answer.
 Intuitively, it’s like zooming out to see the bigger picture before diving into the details, helping the model avoid errors and reason more effectively. It significantly boosts performance on tasks like physics, chemistry, and multi-step question-answering by grounding reasoning in clearer, high-level ideas.
+
+### RAG205 - Query Transformations: HyDE(Hypothetical Document Embeddings)
+**HyDE**
+
+![HyDE](./imgs/HyDE.png)
+
+instead of use the query directly to search for the relevant document in vector store, HyDE use the llm to generate a hypothetical document that represents what an ideal answer to the query might look like. This hypothtical document will then be embeded and used to search for relevant document
