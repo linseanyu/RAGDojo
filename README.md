@@ -22,3 +22,52 @@ Focus on **the base process of a RAG**
 
 ![RAG-Fusion](./imgs/RAG-Fusion.png)
 
+
+### RAG203 - Query Transformations: Decomposition
+
+![QueryTransformations](./imgs/QueryTransformations.png)
+
+
+* Decomposition: 
+explanation in steps:
+1. prompt the model to generate generates multiple sub-questions based on the query first, for exmaple for question : *" What are the main components of an LLM-powered autonomous agent system? "*, we got the result from llm : 
+```
+[
+    '1. What is LLM technology and how does it work in autonomous agent systems?',
+    '2. What are the specific components that make up an LLM-powered autonomous agent system?',
+    '3. How do the main components of an LLM-powered autonomous agent system interact with each other to enable autonomous functionality?'
+]
+```
+2. we can then have two different ways to generate the answer:
+    2.1 recursively
+    we iterate the questions array, take the first question out first, use this question to retrieve document from retriever which will then become the context. And then we will have the first answer for the first question. We combine the first question and first answer and later we will use it as part of the prompt of the second question,so on and so fort. Simply explain it:
+    ```
+    question1 prompt: 
+    "
+    context: retrieved dos based on question1
+    q&a: ""
+    question: question1
+    "
+    
+    question2 prompt:
+    "
+    context: retrieved dos based on question2
+    q&a: "qustion1:answer1"
+    question: question2
+    "
+
+    question3 prompt:
+    "
+    context: retrieved dos based on question3
+    q&a: "qustion1:answer1 \n\n question2: answer2"
+    question: question3
+    "
+    ```
+    ![Recursively](./imgs/Decomposition-Recursively.png)
+
+    **Recursively call the model is so time-consuming, I don't think it's a good idea at all**
+    2.2 individually
+    we use sub question + retrieved doc to generate answers and then combine all of them as the context of the original question
+    ![Individually](./imgs/Decomposition-Individually.png)
+
+
