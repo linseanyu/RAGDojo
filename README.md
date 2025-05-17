@@ -84,3 +84,26 @@ Intuitively, it’s like zooming out to see the bigger picture before diving int
 ![HyDE](./imgs/HyDE.png)
 
 instead of use the query directly to search for the relevant document in vector store, HyDE use the llm to generate a hypothetical document that represents what an ideal answer to the query might look like. This hypothtical document will then be embeded and used to search for relevant document
+
+
+### RAG301 - Routing: Logical Routing
+
+![Routing](./imgs/Routing.png)
+
+![LogicalRouting](./imgs/LogicalRouting.png)
+
+In logical Routing, we create an pydantic object with important property(eg. datasource) and pass it as parameter of the method "with_structured_output" of llm. The llm will then return an instance of this pydantic object with the value based on the question. With the value of this object's key property, we can then decide what route we should take.
+```
+Pydantic 对象和 with_structured_output 的理解：
+Pydantic 对象：
+    * 是 Python 中用于数据验证的工具
+    * 通过定义类和类型注解来创建数据模型
+    * 自动验证数据，确保符合预定义的结构和类型
+    * 例如：可以定义一个包含用户名、年龄等字段的 User 类，并确保年龄是整数
+with_structured_output：
+    * 是 LangChain 中的一个方法
+    * 用于将 LLM 的文本输出转换为结构化的 Pydantic 对象
+    * 确保 AI 生成的内容符合预期的数据格式
+    * 解决了从非结构化文本到结构化数据的转换问题
+    * 简单说，Pydantic 提供数据结构定义，with_structured_output 确保 AI 输出符合这个结构，使 AI 输出可以直接用于后续代码处理。
+```
