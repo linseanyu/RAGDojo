@@ -111,3 +111,12 @@ with_structured_output：
 ### RAG302 - Routing: Semantic Routing
 
 ![SemanticRouting](./imgs/SemanticRouting.png)
+Semantic Routing put different prompts in the Array and embeds them. When the use ask a question, we then embeds the query and use it to search the relevance prompt which will be then passed to the llm.
+
+### RAG401 - Query Construction: Query Structuring for metadata filters
+
+![QueryContruction](./imgs/QueryConstruction.png)
+
+![QC4MetaData](./imgs/QC4MetaData.png)
+**Query Construction**
+The construction in Query Construction simply means construct an object which has the main property needed for a query. The class of the object in which has many important *Field* is defined by us. We need to use llm's with_structured_output method and prompt it to create the an instance of the class we pass in as a parameter.
