@@ -107,3 +107,7 @@ with_structured_output：
     * 解决了从非结构化文本到结构化数据的转换问题
     * 简单说，Pydantic 提供数据结构定义，with_structured_output 确保 AI 输出符合这个结构，使 AI 输出可以直接用于后续代码处理。
 ```
+
+### RAG302 - Routing: Semantic Routing
+
+![SemanticRouting](./imgs/SemanticRouting.png)
