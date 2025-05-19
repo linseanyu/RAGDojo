@@ -120,3 +120,12 @@ Semantic Routing put different prompts in the Array and embeds them. When the us
 ![QC4MetaData](./imgs/QC4MetaData.png)
 **Query Construction**
 The construction in Query Construction simply means construct an object which has the main property needed for a query. The class of the object in which has many important *Field* is defined by us. We need to use llm's with_structured_output method and prompt it to create the an instance of the class we pass in as a parameter.
+
+### RAG501 - Indexing: Multi-representation Indexing
+
+![Indexing](./imgs/Indexing.png)
+
+![Multi-representation](./imgs/Multi-Representation.png)
+
+**Multi-representation Indexing**
+differing from normal vector indexing which will only create one vector for the whole document, Multi-representation Indexing will create multiple vector based on title, summary， main content etc. Multi-representation has higher retrieval accuracy but of course will comsume more resource.
