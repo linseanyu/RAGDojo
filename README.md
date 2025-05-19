@@ -138,3 +138,10 @@ differing from normal vector indexing which will only create one vector for the 
 
 **RAPTOR**
 RAPTOR(Recursive Abstractive Processing for Tree-Organized Retrieval) cuts the huge document into chunks. For each chunk, it will use model to summary it. Based on the summary, it then group the semantically simalar ones together, namely: clustering, and summarize the group. Recursively summarizing the nodes, it finally create a tree. When user retrieve data from the tree, it'll go through the tree based on the similarity between the query and each node, so that it can find the most relevant information to be the context
+
+
+### RAG503 - ColBERT
+**ColBERT**
+Instead of summarizing a document into one number, it gives each word its own “score” and compares them to your question’s words. This makes it great at spotting exactly what’s relevant.
+**RAGatouille**
+RAGatouille is the tool built on ColBERT. With RAGatouille , we can simply execute ColBERT logic
