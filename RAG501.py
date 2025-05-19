@@ -37,8 +37,8 @@ llm = init_chat_model(
 loader = WebBaseLoader("https://lilianweng.github.io/posts/2023-06-23-agent/")
 docs = loader.load()
 
-loader = WebBaseLoader("https://lilianweng.github.io/posts/2024-02-05-human-data-quality/")
-docs.extend(loader.load())
+# loader = WebBaseLoader("https://lilianweng.github.io/posts/2024-02-05-human-data-quality/")
+# docs.extend(loader.load())
 
 chain = (
     {"doc": lambda x: x.page_content}

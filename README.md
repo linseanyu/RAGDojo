@@ -129,3 +129,12 @@ The construction in Query Construction simply means construct an object which ha
 
 **Multi-representation Indexing**
 differing from normal vector indexing which will only create one vector for the whole document, Multi-representation Indexing will create multiple vector based on title, summary， main content etc. Multi-representation has higher retrieval accuracy but of course will comsume more resource.
+
+### RAG502 - Indexing: RAPTOR
+
+![Indexing](./imgs/Indexing.png)
+
+![RAPTOR](./imgs/RAPTOR.png)
+
+**RAPTOR**
+RAPTOR(Recursive Abstractive Processing for Tree-Organized Retrieval) cuts the huge document into chunks. For each chunk, it will use model to summary it. Based on the summary, it then group the semantically simalar ones together, namely: clustering, and summarize the group. Recursively summarizing the nodes, it finally create a tree. When user retrieve data from the tree, it'll go through the tree based on the similarity between the query and each node, so that it can find the most relevant information to be the context
